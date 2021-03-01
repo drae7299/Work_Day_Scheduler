@@ -24,7 +24,31 @@ hourBoxes.each(function(index) {
     }
 });
 
-//Creating a local storage saveing option so schedule doesnt diaapear after refresh
+//Creating a local storage saveing option so schedule doesnt diaapear after refresh as well as on click button for saving abilities
+let saveTasks = window.localStorage;
+let tasks = [];
+let info = $(this).siblings('textarea').val();
+let rowPick =$(this).attr("id");
+
+$('saveBtn').on('click', function(){
+saveTasks.push({rowPick, info});
+saveTasks.setItem("info", JSON.stringify(tasks))
+});
+console.log(tasks);
+
+let myInfo = [];
+if (saveTasks.lenth > i){
+    myInfo = JSON.parse(myInfo.getItem("tasks"));
+    for(var i = 0; i < myInfo; i++){
+        $('$.row').children('textarea').val(myInfo[i].textInput)
+    }
+};
+
+
+
+
+
+
 //     let date = new Date();
 //     currentDay.innerHTML = date.toLocaleTimeString;
 // })
