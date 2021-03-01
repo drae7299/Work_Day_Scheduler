@@ -1,3 +1,21 @@
+//declared global Var
+let currentDate = $('#currentDay');
+
+//time and date display
+currentDate.text(moment().format('MMM Do, YYYY'));
+
+// setInterval(function(){
+//     let date = new Date();
+//     currentDay.innerHTML = date.toLocaleTimeString;
+// })
+
+
+
+
+
+
+
+
 //global Vars
 //Comparison fuhnction
 // "This" functiion to save data
