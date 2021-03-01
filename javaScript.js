@@ -1,10 +1,30 @@
 //declared global Var
 let currentDate = $('#currentDay');
-
-//time and date display
+let rowTime = $(this).attr('id');
+//year and date display
 currentDate.text(moment().format('MMM Do, YYYY'));
 
-// setInterval(function(){
+// Difference between past pre and fut function
+//created a couple variables
+//Used css classes to define past present and future in if and if else statements
+let hourBoxes = $(".row");
+let index = ".index"; //Not sure if this var is needed
+
+hourBoxes.each(function(index) {
+    console.log($(this).children('textarea'));
+
+    if(moment().hour() < rowTime) {
+        $(this).children('textarea').addClass('past')
+    }
+    else if(moment().hour() === rowTime) {
+        $(this).children('textarea').addClass('present')
+    }
+    else if(moment().hour() > rowTime) {
+        $(this).children('textarea').addClass('future')
+    }
+});
+
+//Creating a local storage saveing option so schedule doesnt diaapear after refresh
 //     let date = new Date();
 //     currentDay.innerHTML = date.toLocaleTimeString;
 // })
