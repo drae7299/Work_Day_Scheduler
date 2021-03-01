@@ -2,7 +2,7 @@
 let currentDate = $('#currentDay');
 let rowTime = $(this).attr('id');
 //year and date display
-currentDate.text(moment().format('MMM Do, YYYY'));
+currentDate.text(moment().format('MMM Do, YYYY,ss'));
 
 // Difference between past pre and fut function
 //created a couple variables
