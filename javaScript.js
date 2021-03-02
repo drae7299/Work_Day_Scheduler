@@ -1,62 +1,64 @@
 //declared global Var
 let currentDate = $('#currentDay');
-let rowTime = $(this).attr('id');
 //year and date display
-currentDate.text(moment().format('MMM Do, YYYY,ss'));
+currentDate.text(moment().format('MMMM Do, YYYY,h,mm A'));
 
 // Difference between past pre and fut function
 //created a couple variables
 //Used css classes to define past present and future in if and if else statements
-let hourBoxes = $(".row");
-let index = ".index"; //Not sure if this var is needed
+let containers = $(".row");
+let index = ".index"; //Not sure if this var is needed, its not needed bruh
 
-hourBoxes.each(function(index) {
+containers.each(function(index) {
     console.log($(this).children('textarea'));
 
+    let rowTime = $(this).attr('id');
+
     if(moment().hour() < rowTime) {
-        $(this).children('textarea').addClass('past')
+        $(this).children('textarea').addClass('future')
     }
-    else if(moment().hour() === rowTime) {
+    else if(moment().hour() == rowTime) {
         $(this).children('textarea').addClass('present')
     }
     else if(moment().hour() > rowTime) {
-        $(this).children('textarea').addClass('future')
+        $(this).children('textarea').addClass('past')
     }
 });
 
 //Creating a local storage saveing option so schedule doesnt diaapear after refresh as well as on click button for saving abilities
 let saveTasks = window.localStorage;
-let tasks = [];
-let info = $(this).siblings('textarea').val();
-let rowPick =$(this).attr("id");
+let schTasks = [];
 
-$('saveBtn').on('click', function(){
-saveTasks.push({rowPick, info});
-saveTasks.setItem("info", JSON.stringify(tasks))
+
+
+$('.saveBtn').on('click', function(){
+let info = $(this).siblings('.description').val();
+let rowPicks = $(this).parent().attr("id");    
+schTasks.push({rowPicks, info});
+saveTasks.setItem("info", JSON.stringify(schTasks));
+$(".hour" .description).val(localStorage.getItem(".hour"))
 });
-console.log(tasks);
 
-let myInfo = [];
-if (saveTasks.lenth > i){
-    myInfo = JSON.parse(myInfo.getItem("tasks"));
-    for(var i = 0; i < myInfo; i++){
-        $('$.row').children('textarea').val(myInfo[i].textInput)
+
+//No matter what i do, the info doesnt persist on the page after loading,
+//my tutor wasnt able to help with this
+
+var displayInfo = [];
+if (saveTasks.length > i) {
+    displayInfo = JSON.parse(localStorage.getItem('rowPicks'));
+    for (var i = 0; i < displayInfo.length; i++) {
+        $('$.row)').children('.description').val(displayInfo[i].textInfo)
     }
 };
+$(".hour" .description).val(localStorage.getItem(".hour"))
 
 
 
 
 
 
-//     let date = new Date();
-//     currentDay.innerHTML = date.toLocaleTimeString;
-// })
 
-
-
-
-
+//Failed Sudo Code
 
 
 
