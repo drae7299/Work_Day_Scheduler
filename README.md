@@ -11,6 +11,7 @@
 * Rows and collums to allow easy view and accessibility for user
 * Application allows local storage to save user data
 * App will persist user data to remain after the window is refreshed 
+* Clickable Save Button to allow application to track tasks for day after refresh
 
 
 ### Screenshots
